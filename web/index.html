@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Consume WebSocket Resource</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+    <center>
+        <button onclick="start();" style="border-radius:3px;padding:10px;border:thin solid orange;font-size:18px;font-family: monospace;"> Start</button>
+        <button onclick="close();" style="border-radius:3px;padding:10px;border:thin solid orange;font-size:18px;font-family: monospace;"> Close</button>
+
+        <div id='data' style="margin:5px;padding:5px; border:thin solid orange;border-radius:2px;width:800px;height:500px;font-size:18px;font-family: monospace;">
+            waiting......
+        </div>
+        <div>
+            <script type="text/javascript">
+                <!--
+                var ws = new WebSocket("ws://localhost:8080/WebSocket/chatDemo");
+
+              
+
+                    ws.onerror = function (event) {
+                        onError(event);
+                    };
+
+                    ws.onopen = function (event) {
+                        onOpen(event);
+                    };
+
+                    ws.onmessage = function (event) {
+                        onMessage(event);
+                    };
+
+         
+
+                //write my functions
+
+                function onOpen(event) {
+                    document.getElementById("data").innerHTML = 'Connection established';
+                }
+                ;
+
+                function onError(event) {
+                    alert(event.data);
+                }
+                ;
+                function onMessage(event) {
+                    document.getElementById("data").innerHTML += '<BR/>' + event.data;
+                }
+                ;
+
+
+                function start() {
+                    window.alert("Message " + new Date().toLocaleString());
+                    ws.send("Message From Js " + new Date().toLocaleString());
+                    return false;
+                }
+                ;
+
+                function close() {
+                    ws.onclose = function (evt) {
+
+                    }
+                    document.getElementById("data").innerHTML = "Connection Closed";
+                }
+                ;
+
+                //-->
+            </script>
+
+
+
+
+        </div>
+    </center>
+</body>
+</html>
